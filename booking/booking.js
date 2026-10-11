@@ -8,6 +8,62 @@
     return;
   }
 
+  const rememberedNameCookie = "marquis_booking_name";
+  const nameField = form.elements.name;
+  const rememberNameField = form.elements.rememberName;
+
+  function readRememberedName() {
+    const cookie = document.cookie
+      .split(";")
+      .map((item) => item.trim())
+      .find((item) => item.startsWith(rememberedNameCookie + "="));
+
+    if (!cookie) {
+      return "";
+    }
+
+    try {
+      return decodeURIComponent(cookie.slice(rememberedNameCookie.length + 1));
+    } catch {
+      return "";
+    }
+  }
+
+  function clearRememberedName() {
+    document.cookie = rememberedNameCookie + "=; Max-Age=0; Path=/; SameSite=Lax; Secure";
+  }
+
+  function saveRememberedName(name) {
+    const value = String(name || "").trim();
+    if (!value) {
+      clearRememberedName();
+      return;
+    }
+
+    const maxAge = 180 * 24 * 60 * 60;
+    document.cookie =
+      rememberedNameCookie +
+      "=" +
+      encodeURIComponent(value) +
+      "; Max-Age=" +
+      maxAge +
+      "; Path=/; SameSite=Lax; Secure";
+  }
+
+  const savedName = readRememberedName();
+  if (savedName && nameField && rememberNameField) {
+    nameField.value = savedName;
+    rememberNameField.checked = true;
+  }
+
+  if (rememberNameField) {
+    rememberNameField.addEventListener("change", function () {
+      if (!rememberNameField.checked) {
+        clearRememberedName();
+      }
+    });
+  }
+
   const requestedService = new URLSearchParams(window.location.search).get("service");
   if (requestedService) {
     const serviceField = form.elements.service;
@@ -97,6 +153,9 @@
         link.download = "marquis-booking-request.ics";
         link.click();
         URL.revokeObjectURL(url);
+        if (rememberNameField && rememberNameField.checked) {
+          saveRememberedName(payload.name);
+        }
         setStatus(
           "Booking bridge is not configured yet. I downloaded an ICS request you can import manually.",
           "error"
@@ -118,7 +177,18 @@
         throw new Error(data.error || "The booking bridge could not create the event.");
       }
 
+      const shouldRememberName = Boolean(rememberNameField && rememberNameField.checked);
+      if (shouldRememberName) {
+        saveRememberedName(payload.name);
+      } else {
+        clearRememberedName();
+      }
+
       form.reset();
+      if (shouldRememberName && rememberNameField) {
+        nameField.value = payload.name;
+        rememberNameField.checked = true;
+      }
       setStatus(config.successMessage || "Booking submitted successfully.", "ok");
     } catch (error) {
       setStatus(error.message || "Something went wrong while submitting your booking.", "error");

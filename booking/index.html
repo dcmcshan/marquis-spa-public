@@ -35,8 +35,16 @@
           <form id="booking-form" class="booking-form">
             <label>
               Full name
-              <input name="name" type="text" autocomplete="name" required />
+              <input name="name" type="text" autocomplete="name" maxlength="120" required />
             </label>
+
+            <div class="remember-name-control">
+              <label class="remember-name-option" for="remember-name">
+                <input id="remember-name" name="rememberName" type="checkbox" value="yes" />
+                <span>Remember my name on this device</span>
+              </label>
+              <p class="remember-name-note">Saves only your name in a first-party cookie for 180 days. Uncheck to remove it; avoid saving your name on a shared device.</p>
+            </div>
 
             <label>
               Email
@@ -120,6 +128,6 @@
         </aside>
       </section>
     </main>
-    <footer class="site-footer"><div class="footer-wrap"><span>© 2026 Marquis day SPA</span><nav class="footer-nav" aria-label="Footer navigation"><a href="/product-category/services/">Rituals</a><a href="/work-with-me/">How It Works</a><a href="/contact/">Contact</a></nav></div></footer>
+    <footer class="site-footer"><div class="footer-wrap"><span>© 2026 Marquis day SPA</span><nav class="footer-nav" aria-label="Footer navigation"><a href="/product-category/services/">Rituals</a><a href="/work-with-me/">How It Works</a><a href="/contact/">Contact</a></nav><a class="button footer-reserve" href="/booking/">Reserve</a></div></footer>
   </body>
 </html>

@@ -96,6 +96,25 @@ body {
   font-size: 0.98rem;
 }
 
+.booking-form .remember-name-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.booking-form .remember-name-option input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+  padding: 0;
+  accent-color: var(--accent-strong);
+}
+
+.remember-name-note {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font: 0.84rem/1.5 Arial, sans-serif;
+}
+
 .split {
   display: grid;
   grid-template-columns: 1fr 220px;
