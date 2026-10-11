@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Moonlit stillness</title>
+  <desc id="desc">An abstract, moonlit botanical scene in plum, rose, and warm gold.</desc>
+  <defs>
+    <linearGradient id="night" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#211a31" />
+      <stop offset=".58" stop-color="#514052" />
+      <stop offset="1" stop-color="#b17c70" />
+    </linearGradient>
+    <radialGradient id="glow" cx=".76" cy=".25" r=".68">
+      <stop stop-color="#f7dbb4" stop-opacity=".78" />
+      <stop offset="1" stop-color="#f7dbb4" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="moon" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fff0d2" />
+      <stop offset="1" stop-color="#d9a77e" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" fill="url(#night)" />
+  <rect width="1200" height="760" fill="url(#glow)" />
+  <circle cx="890" cy="205" r="112" fill="url(#moon)" opacity=".95" />
+  <circle cx="930" cy="170" r="106" fill="#554455" opacity=".32" />
+  <path d="M0 610C194 520 310 700 514 603s311-83 476-13 144 15 210-18v188H0Z" fill="#201b2b" opacity=".7" />
+  <g fill="none" stroke="#d5b28c" stroke-linecap="round" stroke-width="5" opacity=".84">
+    <path d="M202 760c79-173 78-283 27-418m-20 290c-77-68-103-131-111-211m123 150c75-66 100-131 101-204m-115 89c-56-39-84-82-101-132m120 52c47-43 61-86 64-132" />
+    <path d="M1010 760c-65-137-69-235-27-352m30 249c70-53 94-105 103-170m-115 119c-70-49-92-100-94-159m110 64c48-32 72-68 87-110" />
+  </g>
+  <g fill="#bd8f89" opacity=".92">
+    <ellipse cx="116" cy="410" rx="17" ry="47" transform="rotate(-33 116 410)" />
+    <ellipse cx="313" cy="433" rx="17" ry="48" transform="rotate(28 313 433)" />
+    <ellipse cx="92" cy="512" rx="16" ry="42" transform="rotate(-48 92 512)" />
+    <ellipse cx="271" cy="523" rx="16" ry="43" transform="rotate(45 271 523)" />
+    <ellipse cx="983" cy="450" rx="17" ry="45" transform="rotate(-28 983 450)" />
+    <ellipse cx="1092" cy="484" rx="16" ry="42" transform="rotate(40 1092 484)" />
+  </g>
+  <g fill="#f2d5b0" opacity=".9">
+    <circle cx="600" cy="340" r="3" />
+    <circle cx="690" cy="250" r="4" />
+    <circle cx="774" cy="386" r="3" />
+    <circle cx="495" cy="438" r="4" />
+    <circle cx="1000" cy="345" r="3" />
+  </g>
+  <path d="M421 574c69-52 112-118 179-165 55-38 113-47 173-32-78 17-107 66-141 111-48 65-109 110-211 86Z" fill="#e8c6a3" opacity=".3" />
+</svg>
